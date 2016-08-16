@@ -13,16 +13,18 @@
 # express or implied. See the License for the specific language governing
 # permissions and limitations under the License.
 
+if [ "$DEPLOYMENT_GROUP_NAME" == "dogsuits-DevEnv" ]
+then
+    exit 0
+fi
+
 . $(dirname $0)/common_functions.sh
 
 msg "Running AWS CLI with region: $(get_instance_region)"
 
 # If the deployment group is dev then exit zero
 
-if [ "$DEPLOYMENT_GROUP_NAME" == "dogsuits-DevEnv" ]
-then
-    exit 0
-fi
+
 
 # get this instance's ID
 INSTANCE_ID=$(get_instance_id)
