@@ -18,7 +18,7 @@ then
     exit 0
 fi
 
-. $(dirname $0)/common_functions.sh
+. common_functions.sh
 
 msg "Running AWS CLI with region: $(get_instance_region)"
 
