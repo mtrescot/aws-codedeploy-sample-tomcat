@@ -17,6 +17,11 @@
 
 msg "Running AWS CLI with region: $(get_instance_region)"
 
+if [ "$DEPLOYMENT_GROUP_NAME" == "dogsuits-DevEnv" ]
+then
+    exit 0
+fi
+
 # get this instance's ID
 INSTANCE_ID=$(get_instance_id)
 if [ $? != 0 -o -z "$INSTANCE_ID" ]; then
